@@ -1,0 +1,54 @@
+1)
+User Story:
+    As a student,
+    I want to be able to access standard and scientific calculators easily,
+    So that I can succeed on my exams.
+
+Acceptance Criteria:
+    Given a user opens their calculator app,
+    When they click on the Scientific link,
+    Then the app should display the scientific button layout.
+
+2)
+User Story:
+    As a customer at a restaurant,
+    I want to be able to calculate a 20% tip,
+    So that I can compensate the waiter for his service.
+
+Acceptance Criteria:
+    Given the user pulls up their app,
+    When they enter their total * 20%,
+    Then they should see the tip amount they want to give.
+
+3)
+User Story:
+    As a shopper with a budget,
+    I want to be able to total up my purchases before I get to the register,
+    So that I don't hold up the line deciding what I want.
+
+Acceptance Criteria:
+    Given the shopper has entered the first couple prices into their Scientific calculator,
+    When they pick out a new item (Ex: $10.99) and hit "Ans + 10.99 =",
+    Then they should be able to keep a running total of their purchases.
+
+4)
+User Story:
+    As a trigonometry student,
+    I want to be able to caclulate the Sine of a right triangle,
+    So that I can do well on my homework.
+
+Acceptance Criteria:
+    Given the student has the app in Scientific mode,
+    When they hit the sin button and the degrees of their starting angle,
+    Then they should find the correct Sine value.
+
+5)
+User Story:
+    As a person who makes mistakes,
+    I want to be able to easily reset the calculator if I hit the wrong button,
+    So that I can get right back to typing in my equation.
+
+Acceptance Criteria:
+    Given the user hit a button they didn't mean to,
+    When they hit the AC key,
+    Then the input field will be cleared out so they can start over.
