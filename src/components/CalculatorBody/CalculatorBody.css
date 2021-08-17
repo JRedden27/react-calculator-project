@@ -1,0 +1,7 @@
+.body {
+  width: 550px;
+  background-color: rgb(235, 235, 217);
+  border-style: solid;
+  border-color: darkgrey;
+  border-radius: 90;
+}
