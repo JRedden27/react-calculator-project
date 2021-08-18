@@ -10,6 +10,8 @@ import {
   divide,
   percent,
   equals,
+  pi,
+  factorial,
 } from "../../redux/action/calc.action";
 
 function Button(props) {
@@ -47,6 +49,14 @@ function Button(props) {
     dispatch(equals(props.value));
   };
 
+  const piHandler = () => {
+    dispatch(pi(props.value));
+  };
+
+  const factorialHandler = () => {
+    dispatch(factorial(props.value));
+  };
+
   return (
     <div>
       {props.value === "AC" ? (
@@ -75,6 +85,14 @@ function Button(props) {
         </button>
       ) : props.value === "=" ? (
         <button type="button" onClick={equalsHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "π" ? (
+        <button type="button" onClick={piHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "x!" ? (
+        <button type="button" onClick={factorialHandler}>
           {props.value}
         </button>
       ) : (
