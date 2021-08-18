@@ -2,25 +2,25 @@ import CalculatorBody from "../../components/CalculatorBody/CalculatorBody";
 
 const initState = {
   output: "",
-  toggle: "sta",
+  toggle: "sci",
   buttonsStandard: [
     "(",
     ")",
     "%",
     "AC",
-    7,
-    8,
-    9,
+    "7",
+    "8",
+    "9",
     "÷",
-    4,
-    5,
-    6,
+    "4",
+    "5",
+    "6",
     "x",
-    3,
-    2,
-    1,
+    "3",
+    "2",
+    "1",
     "-",
-    0,
+    "0",
     ".",
     "=",
     "+",
@@ -42,29 +42,30 @@ const initState = {
     "EXP",
     "x^y",
   ],
-  ops: ["÷", "x", "=", "+", "%", ".", "(", ")"],
+  ops: ["÷", "x", "-", "+", "%", ".", "(", ")"],
 };
 
 export const buttonReducer = (state = initState, action) => {
   switch (action.type) {
     case "BUTTON_PRESS":
-      //   if (
-      //     (state.ops.includes(action.payload) && state.output === "") ||
-      //     (state.ops.includes(action.payload) &&
-      //       state.ops.includes(state.output.slice(-1)))
-      //   ) {
-      //     return;
-      //   }
-      return { ...state, output: (state.output += action.payload) };
+      if (
+        (state.ops.includes(action.payload) && state.output === "") ||
+        (state.ops.includes(action.payload) &&
+          state.ops.includes(state.output.slice(-1)))
+      ) {
+        return { ...state };
+      } else {
+        return { ...state, output: (state.output += action.payload) };
+      }
     case "ALL_CLEAR":
       return { ...state, output: "" };
     case "EQUALS":
       return { ...state, output: eval(state.output.toString()) };
     case "TOGGLE":
-      if (state.mode === "sta") {
-        return { ...state, mode: "sci" };
-      } else {
+      if (state.mode === "sci") {
         return { ...state, mode: "sta" };
+      } else {
+        return { ...state, mode: "sci" };
       }
     default:
       return state;
