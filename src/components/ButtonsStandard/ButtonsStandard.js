@@ -1,34 +1,16 @@
 import React from "react";
 import Button from "../Button/Button";
 import "./ButtonsStandard.css";
+import { useSelector } from "react-redux";
 
 function ButtonsStandard() {
+  const buttons = useSelector((state) => state.buttonsStandard);
+
   return (
-    <div className="grid-container">
-      <Button className="grid-item" value="(" />
-      <Button className="grid-item" value=")" />
-      <Button className="grid-item" value="%" />
-      <Button className="grid-item" value="AC" />
-
-      <Button className="grid-item" value="7" />
-      <Button className="grid-item" value="8" />
-      <Button className="grid-item" value="9" />
-      <Button className="grid-item" value="÷" />
-
-      <Button className="grid-item" value="4" />
-      <Button className="grid-item" value="5" />
-      <Button className="grid-item" value="6" />
-      <Button className="grid-item" value="x" />
-
-      <Button className="grid-item" value="1" />
-      <Button className="grid-item" value="2" />
-      <Button className="grid-item" value="3" />
-      <Button className="grid-item" value="-" />
-
-      <Button className="grid-item" value="0" />
-      <Button className="grid-item" value="." />
-      <Button className="grid-item" value="=" />
-      <Button className="grid-item" value="+" />
+    <div className="grid-container-sta">
+      {buttons.map((button, i) => (
+        <Button key={i} value={button} idx={i} />
+      ))}
     </div>
   );
 }

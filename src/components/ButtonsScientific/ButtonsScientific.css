@@ -1,5 +1,16 @@
-.grid-container {
+.sci-body {
+  display: inline-flex;
+}
+
+.grid-container-sci {
   display: grid;
   grid-template-columns: auto auto auto;
-  column-gap: 0;
+  column-gap: 3px;
+  row-gap: 3px;
 }
+
+/* .grid-container-sta {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 5px;
+} */

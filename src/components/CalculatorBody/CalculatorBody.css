@@ -1,7 +1,8 @@
 .body {
-  width: 550px;
-  background-color: rgb(235, 235, 217);
+  background-color: lightcyan;
   border-style: solid;
-  border-color: darkgrey;
-  border-radius: 90;
+  border-color: steelblue;
+  border-radius: 3%;
+  padding: 15px;
+  display: inline-block;
 }
