@@ -1,8 +1,6 @@
-import CalculatorBody from "../../components/CalculatorBody/CalculatorBody";
-
 const initState = {
   output: "",
-  toggle: "sci",
+  toggle: "sta",
   prevNum: "",
   currNum: "",
   operator: "",
@@ -103,12 +101,14 @@ export const buttonReducer = (state = initState, action) => {
           currNum: state.output,
           output: parseInt(state.prevNum) * (parseInt(state.currNum) / 100),
         };
+      } else {
+        return state;
       }
     case "TOGGLE":
-      if (state.mode === "sci") {
-        return { ...state, mode: "sta" };
-      } else {
+      if (state.mode === "sta") {
         return { ...state, mode: "sci" };
+      } else {
+        return { ...state, mode: "sta" };
       }
     default:
       return state;

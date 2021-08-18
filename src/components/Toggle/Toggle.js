@@ -13,18 +13,18 @@ function Toggle() {
 
   return (
     <div>
-      {currMode === "sta" ? (
+      {currMode !== "sci" ? (
         <span style={{ color: "darkgray" }}>
           Standard |
-          <a onClick={toggleHandler} style={{ color: "blue" }}>
+          <span onClick={toggleHandler} style={{ color: "blue" }}>
             Scientific
-          </a>
+          </span>
         </span>
       ) : (
         <span style={{ color: "darkgray" }}>
-          <a onClick={toggleHandler} style={{ color: "blue" }}>
+          <span onClick={toggleHandler} style={{ color: "blue" }}>
             Standard
-          </a>
+          </span>
           | Scientific
         </span>
       )}

@@ -13,7 +13,7 @@ function CalculatorBody() {
     <div className="body">
       <Toggle />
       <InputField />
-      {currMode === "sta" ? <ButtonsStandard /> : <ButtonsScientific />}
+      {currMode === "sci" ? <ButtonsScientific /> : <ButtonsStandard />}
     </div>
   );
 }
