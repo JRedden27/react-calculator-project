@@ -104,6 +104,16 @@ export const buttonReducer = (state = initState, action) => {
       } else {
         return state;
       }
+    case "PI":
+      return { ...state, output: Math.PI };
+    case "FACTORIAL":
+      let result = parseInt(state.output);
+      let nextNum = result;
+      while (nextNum > 1) {
+        nextNum--;
+        result *= nextNum;
+      }
+      return { ...state, output: result };
     case "TOGGLE":
       if (state.mode === "sta") {
         return { ...state, mode: "sci" };

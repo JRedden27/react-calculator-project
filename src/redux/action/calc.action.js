@@ -38,6 +38,16 @@ export const equals = (value) => ({
   payload: value,
 });
 
+export const pi = (value) => ({
+  type: "PI",
+  payload: value,
+});
+
+export const factorial = (value) => ({
+  type: "FACTORIAL",
+  payload: value,
+});
+
 export const toggle = (value) => ({
   type: "TOGGLE",
   payload: value,
