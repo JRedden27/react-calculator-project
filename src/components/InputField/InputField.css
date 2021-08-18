@@ -1,5 +1,9 @@
-input {
-  height: 30px;
-  margin-left: 1%;
-  width: 91%;
+p {
+  height: 40px;
+  background-color: white;
+  width: 97%;
+  border-style: inset;
+  text-align: right;
+  font-size: xx-large;
+  font-weight: bolder;
 }

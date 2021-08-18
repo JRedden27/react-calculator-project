@@ -1,12 +1,11 @@
 import React from "react";
 import "./InputField.css";
+import { useSelector } from "react-redux";
 
 function InputField() {
-  return (
-    <div>
-      <input type="text" />
-    </div>
-  );
+  const output = useSelector((state) => state.output);
+
+  return <div>{output ? <p>{output}</p> : <p></p>}</div>;
 }
 
 export default InputField;

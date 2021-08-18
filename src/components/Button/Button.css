@@ -1,4 +1,14 @@
 button {
   padding: 10px 30px;
-  width: 6rem;
+  width: 100px;
+  height: 50px;
+  font-weight: 900;
+  font-size: larger;
+  background-color: aquamarine;
+  border-radius: 7%;
+  border-style: outset;
+}
+
+button:hover {
+  background-color: teal;
 }
