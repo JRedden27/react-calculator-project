@@ -3,6 +3,9 @@ import CalculatorBody from "../../components/CalculatorBody/CalculatorBody";
 const initState = {
   output: "",
   toggle: "sci",
+  prevNum: "",
+  currNum: "",
+  operator: "",
   buttonsStandard: [
     "(",
     ")",
@@ -59,8 +62,48 @@ export const buttonReducer = (state = initState, action) => {
       }
     case "ALL_CLEAR":
       return { ...state, output: "" };
+    case "ADD":
+      return { ...state, prevNum: state.output, output: "", operator: "+" };
+    case "SUBTRACT":
+      return { ...state, prevNum: state.output, output: "", operator: "-" };
+    case "MULTIPLY":
+      return { ...state, prevNum: state.output, output: "", operator: "x" };
+    case "DIVIDE":
+      return { ...state, prevNum: state.output, output: "", operator: "÷" };
+    case "PERCENT":
+      return { ...state, prevNum: state.output, output: "", operator: "%" };
     case "EQUALS":
-      return { ...state, output: eval(state.output.toString()) };
+      if (state.operator === "+") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: parseInt(state.prevNum) + parseInt(state.currNum),
+        };
+      } else if (state.operator === "-") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: parseInt(state.prevNum) - parseInt(state.currNum),
+        };
+      } else if (state.operator === "x") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: parseInt(state.prevNum) * parseInt(state.currNum),
+        };
+      } else if (state.operator === "÷") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: parseInt(state.prevNum) / parseInt(state.currNum),
+        };
+      } else if (state.operator === "%") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: parseInt(state.prevNum) * (parseInt(state.currNum) / 100),
+        };
+      }
     case "TOGGLE":
       if (state.mode === "sci") {
         return { ...state, mode: "sta" };
