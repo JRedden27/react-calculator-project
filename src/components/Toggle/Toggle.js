@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../../redux/action/calc.action";
 
 function Toggle() {
-  const currMode = useSelector((state) => state.mode);
+  const currMode = useSelector((state) => state.toggle);
 
   const dispatch = useDispatch();
   const toggleHandler = () => {

@@ -11,9 +11,16 @@ import {
   percent,
   equals,
   pi,
+  euler,
+  answer,
+  sin,
+  cos,
+  tan,
   factorial,
   powerOf,
   squareRoot,
+  log,
+  natLog,
 } from "../../redux/action/calc.action";
 
 function Button(props) {
@@ -55,6 +62,26 @@ function Button(props) {
     dispatch(pi(props.value));
   };
 
+  const eulerHandler = () => {
+    dispatch(euler(props.value));
+  };
+
+  const answerHandler = () => {
+    dispatch(answer(props.value));
+  };
+
+  const sinHandler = () => {
+    dispatch(sin(props.value));
+  };
+
+  const cosHandler = () => {
+    dispatch(cos(props.value));
+  };
+
+  const tanHandler = () => {
+    dispatch(tan(props.value));
+  };
+
   const factorialHandler = () => {
     dispatch(factorial(props.value));
   };
@@ -65,6 +92,14 @@ function Button(props) {
 
   const squareRootHandler = () => {
     dispatch(squareRoot(props.value));
+  };
+
+  const logHandler = () => {
+    dispatch(log(props.value));
+  };
+
+  const natLogHandler = () => {
+    dispatch(natLog(props.value));
   };
 
   return (
@@ -101,6 +136,26 @@ function Button(props) {
         <button type="button" onClick={piHandler}>
           {props.value}
         </button>
+      ) : props.value === "e" ? (
+        <button type="button" onClick={eulerHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "Ans" ? (
+        <button type="button" onClick={answerHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "sin" ? (
+        <button type="button" onClick={sinHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "cos" ? (
+        <button type="button" onClick={cosHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "tan" ? (
+        <button type="button" onClick={tanHandler}>
+          {props.value}
+        </button>
       ) : props.value === "x!" ? (
         <button type="button" onClick={factorialHandler}>
           {props.value}
@@ -111,6 +166,14 @@ function Button(props) {
         </button>
       ) : props.value === "√" ? (
         <button type="button" onClick={squareRootHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "log" ? (
+        <button type="button" onClick={logHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "ln" ? (
+        <button type="button" onClick={natLogHandler}>
           {props.value}
         </button>
       ) : (

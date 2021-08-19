@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import "./ButtonsScientific.css";
 import { useSelector } from "react-redux";
 
-function ButtonsScientific({ buttonPress }) {
+function ButtonsScientific() {
   const buttons = useSelector((state) => state.buttonsScientific);
 
   return (

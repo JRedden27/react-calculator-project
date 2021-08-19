@@ -43,6 +43,31 @@ export const pi = (value) => ({
   payload: value,
 });
 
+export const euler = (value) => ({
+  type: "EULER",
+  payload: value,
+});
+
+export const answer = (value) => ({
+  type: "ANSWER",
+  payload: value,
+});
+
+export const sin = (value) => ({
+  type: "SIN",
+  payload: value,
+});
+
+export const cos = (value) => ({
+  type: "COS",
+  payload: value,
+});
+
+export const tan = (value) => ({
+  type: "TAN",
+  payload: value,
+});
+
 export const factorial = (value) => ({
   type: "FACTORIAL",
   payload: value,
@@ -55,6 +80,16 @@ export const powerOf = (value) => ({
 
 export const squareRoot = (value) => ({
   type: "SQUARE_ROOT",
+  payload: value,
+});
+
+export const log = (value) => ({
+  type: "LOG",
+  payload: value,
+});
+
+export const natLog = (value) => ({
+  type: "NAT_LOG",
   payload: value,
 });
 
