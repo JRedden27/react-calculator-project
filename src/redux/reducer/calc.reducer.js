@@ -4,6 +4,7 @@ const initState = {
   prevNum: "",
   currNum: "",
   operator: "",
+  answer: "",
   buttonsStandard: [
     "(",
     ")",
@@ -43,7 +44,7 @@ const initState = {
     "EXP",
     "x^y",
   ],
-  ops: ["÷", "x", "-", "+", "%", ".", "(", ")", "x^y"],
+  ops: ["÷", "x", "-", "+", "%", ".", "(", ")", "x^y", "log"],
 };
 
 export const buttonReducer = (state = initState, action) => {
@@ -70,6 +71,12 @@ export const buttonReducer = (state = initState, action) => {
       return { ...state, prevNum: state.output, output: "", operator: "÷" };
     case "PERCENT":
       return { ...state, prevNum: state.output, output: "", operator: "%" };
+    case "SIN":
+      return { ...state, prevNum: state.output, output: "", operator: "sin" };
+    case "COS":
+      return { ...state, prevNum: state.output, output: "", operator: "cos" };
+    case "TAN":
+      return { ...state, prevNum: state.output, output: "", operator: "tan" };
     case "POWER_OF":
       return { ...state, prevNum: state.output, output: "", operator: "x^y" };
     case "EQUALS":
@@ -78,6 +85,7 @@ export const buttonReducer = (state = initState, action) => {
           ...state,
           currNum: state.output,
           output: parseInt(state.prevNum) + parseInt(state.currNum),
+          answer: parseInt(state.prevNum) + parseInt(state.currNum),
         };
       } else if (state.operator === "-") {
         return {
@@ -103,6 +111,24 @@ export const buttonReducer = (state = initState, action) => {
           currNum: state.output,
           output: parseInt(state.prevNum) * (parseInt(state.currNum) / 100),
         };
+      } else if (state.operator === "sin") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: Math.sin(parseInt(state.prevNum), parseInt(state.currNum)),
+        };
+      } else if (state.operator === "cos") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: Math.cos(parseInt(state.prevNum), parseInt(state.currNum)),
+        };
+      } else if (state.operator === "tan") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: Math.tan(parseInt(state.prevNum), parseInt(state.currNum)),
+        };
       } else if (state.operator === "x^y") {
         return {
           ...state,
@@ -114,6 +140,10 @@ export const buttonReducer = (state = initState, action) => {
       }
     case "PI":
       return { ...state, output: Math.PI };
+    case "EULER":
+      return { ...state, output: Math.E };
+    case "ANSWER":
+      return { ...state, output: state.currNum };
     case "FACTORIAL":
       let result = parseInt(state.output);
       let nextNum = result;
@@ -124,11 +154,15 @@ export const buttonReducer = (state = initState, action) => {
       return { ...state, output: result };
     case "SQUARE_ROOT":
       return { ...state, output: Math.sqrt(state.output) };
+    case "LOG":
+      return { ...state, output: Math.log10(state.output) };
+    case "NAT_LOG":
+      return { ...state, output: Math.log(state.output) };
     case "TOGGLE":
-      if (state.mode === "sta") {
-        return { ...state, mode: "sci" };
+      if (state.toggle === "sta") {
+        return { ...state, toggle: "sci" };
       } else {
-        return { ...state, mode: "sta" };
+        return { ...state, toggle: "sta" };
       }
     default:
       return state;

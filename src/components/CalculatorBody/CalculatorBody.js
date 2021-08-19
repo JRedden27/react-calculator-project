@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import "./CalculatorBody.css";
 
 function CalculatorBody() {
-  const currMode = useSelector((state) => state.mode);
+  const currMode = useSelector((state) => state.toggle);
 
   return (
     <div className="body">
