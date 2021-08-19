@@ -43,7 +43,7 @@ const initState = {
     "EXP",
     "x^y",
   ],
-  ops: ["÷", "x", "-", "+", "%", ".", "(", ")"],
+  ops: ["÷", "x", "-", "+", "%", ".", "(", ")", "x^y"],
 };
 
 export const buttonReducer = (state = initState, action) => {
@@ -70,6 +70,8 @@ export const buttonReducer = (state = initState, action) => {
       return { ...state, prevNum: state.output, output: "", operator: "÷" };
     case "PERCENT":
       return { ...state, prevNum: state.output, output: "", operator: "%" };
+    case "POWER_OF":
+      return { ...state, prevNum: state.output, output: "", operator: "x^y" };
     case "EQUALS":
       if (state.operator === "+") {
         return {
@@ -101,6 +103,12 @@ export const buttonReducer = (state = initState, action) => {
           currNum: state.output,
           output: parseInt(state.prevNum) * (parseInt(state.currNum) / 100),
         };
+      } else if (state.operator === "x^y") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: Math.pow(parseInt(state.prevNum), parseInt(state.currNum)),
+        };
       } else {
         return state;
       }
@@ -114,6 +122,8 @@ export const buttonReducer = (state = initState, action) => {
         result *= nextNum;
       }
       return { ...state, output: result };
+    case "SQUARE_ROOT":
+      return { ...state, output: Math.sqrt(state.output) };
     case "TOGGLE":
       if (state.mode === "sta") {
         return { ...state, mode: "sci" };

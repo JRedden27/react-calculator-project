@@ -48,6 +48,16 @@ export const factorial = (value) => ({
   payload: value,
 });
 
+export const powerOf = (value) => ({
+  type: "POWER_OF",
+  payload: value,
+});
+
+export const squareRoot = (value) => ({
+  type: "SQUARE_ROOT",
+  payload: value,
+});
+
 export const toggle = (value) => ({
   type: "TOGGLE",
   payload: value,

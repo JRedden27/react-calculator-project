@@ -12,6 +12,8 @@ import {
   equals,
   pi,
   factorial,
+  powerOf,
+  squareRoot,
 } from "../../redux/action/calc.action";
 
 function Button(props) {
@@ -57,6 +59,14 @@ function Button(props) {
     dispatch(factorial(props.value));
   };
 
+  const powerOfHandler = () => {
+    dispatch(powerOf(props.value));
+  };
+
+  const squareRootHandler = () => {
+    dispatch(squareRoot(props.value));
+  };
+
   return (
     <div>
       {props.value === "AC" ? (
@@ -93,6 +103,14 @@ function Button(props) {
         </button>
       ) : props.value === "x!" ? (
         <button type="button" onClick={factorialHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "x^y" ? (
+        <button type="button" onClick={powerOfHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "√" ? (
+        <button type="button" onClick={squareRootHandler}>
           {props.value}
         </button>
       ) : (
