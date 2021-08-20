@@ -4,7 +4,7 @@ const initState = {
   prevNum: "",
   currNum: "",
   operator: "",
-  answer: "",
+  // answer: "",
   buttonsStandard: [
     "(",
     ")",
@@ -71,6 +71,8 @@ export const buttonReducer = (state = initState, action) => {
       return { ...state, prevNum: state.output, output: "", operator: "÷" };
     case "PERCENT":
       return { ...state, prevNum: state.output, output: "", operator: "%" };
+    case "INV":
+      return { ...state, prevNum: state.output, output: "", operator: "Inv" };
     case "SIN":
       return { ...state, prevNum: state.output, output: "", operator: "sin" };
     case "COS":
@@ -78,14 +80,14 @@ export const buttonReducer = (state = initState, action) => {
     case "TAN":
       return { ...state, prevNum: state.output, output: "", operator: "tan" };
     case "POWER_OF":
-      return { ...state, prevNum: state.output, output: "", operator: "x^y" };
+      return { ...state, prevNum: state.output, output: "", operator: "EXP" };
     case "EQUALS":
       if (state.operator === "+") {
         return {
           ...state,
           currNum: state.output,
           output: parseInt(state.prevNum) + parseInt(state.currNum),
-          answer: parseInt(state.prevNum) + parseInt(state.currNum),
+          // answer: parseInt(state.prevNum) + parseInt(state.currNum),
         };
       } else if (state.operator === "-") {
         return {
@@ -110,6 +112,12 @@ export const buttonReducer = (state = initState, action) => {
           ...state,
           currNum: state.output,
           output: parseInt(state.prevNum) * (parseInt(state.currNum) / 100),
+        };
+      } else if (state.operator === "Inv") {
+        return {
+          ...state,
+          currNum: state.output,
+          output: Math.asin(parseInt(state.prevNum), parseInt(state.currNum)),
         };
       } else if (state.operator === "sin") {
         return {
@@ -152,6 +160,8 @@ export const buttonReducer = (state = initState, action) => {
         result *= nextNum;
       }
       return { ...state, output: result };
+    case "EXP":
+      return { ...state, output: Math.pow(10, state.output) };
     case "SQUARE_ROOT":
       return { ...state, output: Math.sqrt(state.output) };
     case "LOG":
