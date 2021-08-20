@@ -3,6 +3,7 @@ p {
   background-color: white;
   width: 97%;
   border-style: inset;
+  border-width: 5px;
   text-align: right;
   font-size: xx-large;
   font-weight: bolder;

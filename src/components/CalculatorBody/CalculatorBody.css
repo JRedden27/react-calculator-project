@@ -1,6 +1,7 @@
 .body {
   background-color: lightcyan;
-  border-style: solid;
+  border-style: outset;
+  border-width: 7px;
   border-color: steelblue;
   border-radius: 3%;
   padding: 15px;
