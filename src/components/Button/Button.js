@@ -13,9 +13,11 @@ import {
   pi,
   euler,
   answer,
+  inv,
   sin,
   cos,
   tan,
+  exp,
   factorial,
   powerOf,
   squareRoot,
@@ -58,6 +60,10 @@ function Button(props) {
     dispatch(equals(props.value));
   };
 
+  const invHandler = () => {
+    dispatch(inv(props.value));
+  };
+
   const piHandler = () => {
     dispatch(pi(props.value));
   };
@@ -80,6 +86,10 @@ function Button(props) {
 
   const tanHandler = () => {
     dispatch(tan(props.value));
+  };
+
+  const expHandler = () => {
+    dispatch(exp(props.value));
   };
 
   const factorialHandler = () => {
@@ -132,6 +142,10 @@ function Button(props) {
         <button type="button" onClick={equalsHandler}>
           {props.value}
         </button>
+      ) : props.value === "Inv" ? (
+        <button type="button" onClick={invHandler}>
+          {props.value}
+        </button>
       ) : props.value === "π" ? (
         <button type="button" onClick={piHandler}>
           {props.value}
@@ -154,6 +168,10 @@ function Button(props) {
         </button>
       ) : props.value === "tan" ? (
         <button type="button" onClick={tanHandler}>
+          {props.value}
+        </button>
+      ) : props.value === "EXP" ? (
+        <button type="button" onClick={expHandler}>
           {props.value}
         </button>
       ) : props.value === "x!" ? (

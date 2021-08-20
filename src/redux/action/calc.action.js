@@ -38,6 +38,11 @@ export const equals = (value) => ({
   payload: value,
 });
 
+export const inv = (value) => ({
+  type: "INV",
+  payload: value,
+});
+
 export const pi = (value) => ({
   type: "PI",
   payload: value,
@@ -65,6 +70,11 @@ export const cos = (value) => ({
 
 export const tan = (value) => ({
   type: "TAN",
+  payload: value,
+});
+
+export const exp = (value) => ({
+  type: "EXP",
   payload: value,
 });
 
