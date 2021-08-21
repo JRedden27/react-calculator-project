@@ -7,6 +7,7 @@ function Toggle() {
   const currMode = useSelector((state) => state.toggle);
 
   const dispatch = useDispatch();
+
   const toggleHandler = () => {
     dispatch(toggle(currMode));
   };

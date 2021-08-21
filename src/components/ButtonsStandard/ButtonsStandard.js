@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 function ButtonsStandard() {
   const buttons = useSelector((state) => state.buttonsStandard);
-  const handlers = useSelector((state) => state.standardHandlers);
+  //const handlers = useSelector((state) => state.standardHandlers);
 
   return (
     <div className="grid-container-sta">
